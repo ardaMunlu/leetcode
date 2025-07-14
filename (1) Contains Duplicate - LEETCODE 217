@@ -1,0 +1,27 @@
+(1) Contains Duplicate - LEETCODE 217
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+
+🔹 @param {number[]} nums
+--Describes a parameter for the function
+--@param tells the tool this is a parameter
+--{number[]} means it’s an array of numbers
+--nums is the name of the parameter
+🔹 @return {boolean}
+--Describes what the function returns
+--{boolean} means the function returns either true or false
+
+const containsDuplicate = function(nums) {
+    nums.sort((a,b) => a-b);
+    for(let i = 0; i <= nums.length-1; i++){
+        if(nums[i] === nums[i+1]){
+            return true
+        }
+    }
+    return false
+};
+
+--first we sort the array in ascending order, then check the values next to eacher other one by one, if duplication found true returns else;
+
