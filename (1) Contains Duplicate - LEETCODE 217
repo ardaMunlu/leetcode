@@ -24,4 +24,23 @@ const containsDuplicate = function(nums) {
 };
 
 --first we sort the array in ascending order, then check the values next to eacher other one by one, if duplication found true returns else;
+//SET
 
+var containsDuplicate = function(nums) {
+    const numSet = new Set();
+
+    for (const n of nums) {
+        if (numSet.has(n)) {
+            return true;
+        }
+        numSet.add(n);
+    }
+    
+    return false;
+};
+
+//even shorter version
+var containsDuplicate = function(nums) {
+    const numSet = new Set(nums);
+    return numSet.size < nums.length;
+};
