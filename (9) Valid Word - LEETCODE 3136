@@ -1,0 +1,20 @@
+/**
+ * @param {string} word
+ * @return {boolean}
+ */
+function isValid(word) {
+  if (word.length < 3) return false; //üç birimden uzun olmalı
+
+  const vowelsSet = new Set('aeiouAEIOU'.split('')); //Set oluşturarak hızlı kontrol sağlıyor ve tekrarı önlüyoruz
+  let v = 0, c = 0; //sesli ve sessiz için counter 
+
+  for (const ch of word) {
+    if (/\d/.test(ch)) continue;           //sayı ise devam et, sayaca gerek yok
+    if (/[a-zA-Z]/.test(ch)) {   //harf ise sesli mi sessiz mi kontrol ediyoruz
+      vowelsSet.has(ch) ? ++v : ++c;
+    } else {
+      return false;         //uygun olmayan birim var ise false dönüyoruz              
+    }
+  }
+  return v > 0 && c > 0; //en az bir sesli ve bir sessiz olmalı onu da kontrol ediyoruz 
+}
