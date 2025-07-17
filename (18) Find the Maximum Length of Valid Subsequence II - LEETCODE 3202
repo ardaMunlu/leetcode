@@ -1,0 +1,27 @@
+//BRUT FORCE
+class Solution:
+    def maximumLength(self, nums: List[int], k: int) -> int:
+        max_len = 0
+        for x in range(k):
+            freq = [0] * k
+            for num in nums:
+                num %= k
+                freq[num] = freq[(x - num) % k] + 1
+                max_len = max(max_len, freq[num])
+        return max_len
+*******************************************************************************************************
+const maximumLength = (nums, k, res = 2) => {
+    for (let j = 0; j < k; j++) {
+        const dp = Array(k).fill(0);
+
+        for (let i = 0; i < nums.length; i++) {
+            const mod = nums[i] % k;
+            const pos = (j - mod + k) % k;
+            dp[mod] = dp[pos] + 1;
+        }
+
+        res = Math.max(res, ...dp);
+    }
+
+    return res;
+};
