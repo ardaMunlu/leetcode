@@ -19,3 +19,9 @@ var trap = function(height) {
 
     return water;    
 };
+
+Su seviyesi: min(leftMax, rightMax)
+
+Eğer leftMax < rightMax ise, o zaman en fazla leftMax kadar su olabilir.
+
+Bu durumda rightMax’in daha büyük olduğunu bilmek, bize sağın bu çukuru kapattığını garanti eder.
